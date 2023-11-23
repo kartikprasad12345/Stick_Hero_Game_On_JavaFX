@@ -16,7 +16,7 @@ import javafx.scene.Group;
 import java.io.FileInputStream;
 import java.io.InputStream;
 import javafx.stage.Stage;
-public class HelloApplication extends Application {
+public class Homepage extends Application {
     @Override
     public void start(Stage primaryStage) throws Exception {
         //aa
@@ -102,7 +102,7 @@ public class HelloApplication extends Application {
 //        primaryStage.setScene(scene);
 //        primaryStage.show();
 
-        FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("BackgroundGame.fxml"));
+        FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("Homepage.fxml"));
 //        Parent root = fxmlLoader.load();
 //        Scene scene = new Scene(root, 300, 200);
 //        primaryStage.setScene(scene);

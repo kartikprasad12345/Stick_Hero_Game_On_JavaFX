@@ -27,6 +27,8 @@ public class Homescreencontroller {
     @FXML
     private Button mainbutton;
     @FXML
+    private Button pause;
+    @FXML
     private Rectangle myRectangle;
     @FXML
     private Pane rootPane;
@@ -169,6 +171,13 @@ public class Homescreencontroller {
 //        trans.setToX(-700);
 //        trans.play();
 
+    }
+    public void switchToPausescreen(ActionEvent event) throws IOException {
+        Parent root = FXMLLoader.load(getClass().getResource("Pausescreen.fxml"));
+        stage = (Stage)((Node)event.getSource()).getScene().getWindow();
+        scene = new Scene(root);
+        stage.setScene(scene);
+        stage.show();
     }
 
     private void createTimeline() {

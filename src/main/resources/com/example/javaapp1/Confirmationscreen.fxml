@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="214.0" prefWidth="280.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.javaapp1.Confirmationscreen">
+   <children>
+      <ImageView fitHeight="214.0" fitWidth="281.0" pickOnBounds="true">
+         <image>
+            <Image url="@../../../../../../../../Downloads/gradient.png" />
+         </image>
+      </ImageView>
+      <Label layoutX="7.0" layoutY="14.0" prefHeight="58.0" prefWidth="274.0" text="Are you sure you want to quit?">
+         <font>
+            <Font size="20.0" />
+         </font>
+      </Label>
+      <ImageView fitHeight="71.0" fitWidth="68.0" layoutX="33.0" layoutY="99.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@353574.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="105.0" fitWidth="102.0" layoutX="173.0" layoutY="87.0" pickOnBounds="true">
+         <image>
+            <Image url="@no-icon-png-26.jpg" />
+         </image>
+      </ImageView>
+   </children>
+</AnchorPane>

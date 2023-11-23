@@ -61,6 +61,10 @@ public class Homescreencontroller {
         Rectangle temp1=new Rectangle(73,233,Color.BLACK);
         temp1.setX(313);
         temp1.setY(310);
+        Rectangle b2=new Rectangle(10,10,Color.BLACK);
+        b2.setX(376);
+        b2.setY(311);
+
 
 //        rootPane.getChildren().add(myRectangle);
 //        rootPane.getChildren().add(temp);
@@ -68,7 +72,9 @@ public class Homescreencontroller {
         g.getChildren().add(myRectangle);
         g.getChildren().add(temp);
         g.getChildren().add(temp1);
+        g.getChildren().add(b2);
         rootPane.getChildren().add(g);
+        System.out.println(g.getChildren().size());
         mainbutton.setOnMousePressed(this::handleMousePressed);
         mainbutton.setOnMouseReleased(this::handleMouseReleased);
 //        stage.setScene(scene);
@@ -100,6 +106,28 @@ public class Homescreencontroller {
         rotate.setByAngle(90);
         rotate.setAxis(Rotate.Z_AXIS);
 //        private int setonfinished=0;
+        EventHandler<ActionEvent> eventHandler2 = new EventHandler<ActionEvent>() {
+            @Override
+            public void handle(ActionEvent event) {
+                // Access the global variable within the event handler
+//                setonfinished=1;
+                myRectangle=(Rectangle)g.getChildren().get(g.getChildren().size()-1);
+                createTimeline();
+//                TranslateTransition trans=new TranslateTransition();
+//                trans.setNode(g);
+//                trans.setDuration(Duration.seconds(2));
+//                trans.setByX(-315);
+////                TranslateTransition trans1=new TranslateTransition();
+////                trans1.setNode(myRectangle);
+////                trans1.setDuration(Duration.seconds(5));
+////                trans1.setByX(-700);
+////                trans1.play();
+//                trans.setOnFinished();
+//                trans.play();
+
+//                trans1.play();
+            }
+        };
         EventHandler<ActionEvent> eventHandler = new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent event) {
@@ -115,7 +143,9 @@ public class Homescreencontroller {
 //                trans1.setDuration(Duration.seconds(5));
 //                trans1.setByX(-700);
 //                trans1.play();
+                trans.setOnFinished(eventHandler2);
                 trans.play();
+
 //                trans1.play();
             }
         };

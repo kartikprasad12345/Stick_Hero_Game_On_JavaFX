@@ -64,7 +64,7 @@ public class Homescreencontroller {
         Rectangle b2=new Rectangle(10,10,Color.BLACK);
         b2.setX(376);
         b2.setY(311);
-
+//aa
 
 //        rootPane.getChildren().add(myRectangle);
 //        rootPane.getChildren().add(temp);

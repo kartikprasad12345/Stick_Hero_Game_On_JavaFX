@@ -174,13 +174,31 @@ public class Homescreencontroller {
 //        trans.play();
 
     }
-    public void switchToPausescreen(ActionEvent event) throws IOException {
-        Parent root = FXMLLoader.load(getClass().getResource("Pausescreen.fxml"));
-        stage = (Stage)((Node)event.getSource()).getScene().getWindow();
-        scene = new Scene(root);
-        stage.setScene(scene);
-        stage.show();
+    @FXML
+    private void handlePauseButton(ActionEvent event) throws IOException {
+        // Load the PauseScreen.fxml file
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("PauseScreen.fxml"));
+        Parent pauseScreen = loader.load();
+
+        // Create a new stage for the pause screen
+        Stage pauseStage = new Stage();
+        pauseStage.setTitle("Pause Screen");
+        pauseStage.setScene(new Scene(pauseScreen));
+
+        // Set the stage to be a modal window (blocks interactions with the main window)
+        pauseStage.initOwner(((Stage) ((javafx.scene.Node) event.getSource()).getScene().getWindow()));
+        pauseStage.initModality(javafx.stage.Modality.APPLICATION_MODAL);
+
+        // Show the pause screen
+        pauseStage.showAndWait();
     }
+//    public void switchToPausescreen(ActionEvent event) throws IOException {
+//        Parent root = FXMLLoader.load(getClass().getResource("Pausescreen.fxml"));
+//        stage = (Stage)((Node)event.getSource()).getScene().getWindow();
+//        scene = new Scene(root);
+//        stage.setScene(scene);
+//        stage.show();
+//    }
 
     private void createTimeline() {
         // Create a Timeline for increasing height

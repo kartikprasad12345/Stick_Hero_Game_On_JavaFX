@@ -35,5 +35,7 @@
          </image>
       </ImageView>
       <Button fx:id="button" layoutX="31.0" layoutY="254.0" mnemonicParsing="false" onAction="#switchToHomepage" opacity="0.0" prefHeight="73.0" prefWidth="74.0" text="Button" />
+      <Button fx:id="button1" layoutX="31.0" layoutY="254.0" mnemonicParsing="false" onAction="#handleResumeButton" opacity="0.0" prefHeight="73.0" prefWidth="74.0" text="Button" />
+      <Button fx:id="button" layoutX="343.0" layoutY="265.0" mnemonicParsing="false" onAction="#switchToHomepage" opacity="0.0" prefHeight="50.0" prefWidth="52.0" text="Button" />
    </children>
 </AnchorPane>

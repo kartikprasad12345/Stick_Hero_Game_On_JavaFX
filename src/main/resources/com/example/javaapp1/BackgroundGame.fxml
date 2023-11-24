@@ -41,7 +41,7 @@
       </StackPane>
       <StackPane layoutX="8.0" layoutY="7.0" prefHeight="43.0" prefWidth="45.0">
          <children>
-            <Button fx:id="pause" mnemonicParsing="false" onAction="#switchToPausescreen" opacity="0.0" prefHeight="43.0" prefWidth="108.0" text="ghj" />
+            <Button fx:id="pause" mnemonicParsing="false" onAction="#handlePauseButton" opacity="0.0" prefHeight="43.0" prefWidth="108.0" text="ghj" />
          </children>
       </StackPane>
       <Button layoutX="173.0" layoutY="205.0" mnemonicParsing="false" opacity="0.0" />

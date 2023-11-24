@@ -31,6 +31,8 @@ public class Homescreencontroller {
     private Rectangle myRectangle;
     @FXML
     private Pane rootPane;
+    @FXML
+    private Button pausebutton;
     private Timeline increaseHeightTimeline;
     private long pressStartTime;
     private int setonfinished=0;
@@ -96,7 +98,7 @@ public class Homescreencontroller {
 //        stage.show();
 //    }
     @FXML
-    public void initialize(){
+    public void initialize() {
 //        Parent root= FXMLLoader.load(getClass().getResource("BackgroundGame.fxml"));
 //        stage=(Stage)((Node)e.getSource()).getScene().getWindow();
 //        scene=new Scene(root);
@@ -254,5 +256,23 @@ public class Homescreencontroller {
 
         // Set auto-reverse for a smooth animation when the mouse button is released
 //        increaseHeightTimeline.setAutoReverse(false);
+    }
+    @FXML
+    private void handlePauseButton(MouseEvent event) throws Exception {
+        // Load the PauseScreen.fxml file
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("PauseScreen.fxml"));
+        Parent pauseScreen = loader.load();
+
+        // Create a new stage for the pause screen
+        Stage pauseStage = new Stage();
+        pauseStage.setTitle("Pause Screen");
+        pauseStage.setScene(new Scene(pauseScreen));
+
+        // Set the stage to be a modal window (blocks interactions with the main window)
+        pauseStage.initOwner(((Stage) ((javafx.scene.Node) event.getSource()).getScene().getWindow()));
+        pauseStage.initModality(javafx.stage.Modality.APPLICATION_MODAL);
+
+        // Show the pause screen
+        pauseStage.showAndWait();
     }
 }

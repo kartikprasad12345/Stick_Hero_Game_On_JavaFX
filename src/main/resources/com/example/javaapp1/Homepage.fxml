@@ -7,7 +7,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="542.0" prefWidth="450.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.javaapp1.SceneController">
+<AnchorPane fx:id="scenePane" prefHeight="542.0" prefWidth="450.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.javaapp1.HomepageController">
     <children>
       <ImageView fitHeight="541.0" fitWidth="450.0" pickOnBounds="true">
          <image>
@@ -17,7 +17,7 @@
          <image>
             <Image url="@unnamed.png" />
          </image></ImageView>
-        <Button layoutX="328.0" layoutY="258.0" mnemonicParsing="false" prefHeight="33.0" prefWidth="108.0" style="-fx-background-color: #FF0000;" text="Quit" textFill="#332f2fe5">
+        <Button fx:id="exitButton" layoutX="328.0" layoutY="258.0" mnemonicParsing="false" onAction="#setExitButton" prefHeight="33.0" prefWidth="108.0" style="-fx-background-color: #FF0000;" text="Quit" textFill="#332f2fe5">
             <font>
                 <Font size="24.0" />
             </font>

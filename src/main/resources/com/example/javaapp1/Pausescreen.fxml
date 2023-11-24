@@ -7,16 +7,21 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="542.0" prefWidth="450.0" style="-fx-fill: linear-gradient(to right, #ffcc00, #ff3300);" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.javaapp1.PausescreenController">
+<AnchorPane prefHeight="400.0" prefWidth="400.0" style="-fx-fill: linear-gradient(to right, #ffcc00, #ff3300);" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.javaapp1.PausescreenController">
    <children>
-      <ImageView fitHeight="542.0" fitWidth="450.0" layoutX="-3.0" pickOnBounds="true">
+      <ImageView fitHeight="400.0" fitWidth="416.0" layoutX="-19.0" pickOnBounds="true">
          <image>
             <Image url="@gradient.png" />
          </image>
       </ImageView>
-      <ImageView accessibleRole="BUTTON" fitHeight="73.0" fitWidth="73.0" layoutX="332.0" layoutY="254.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView accessibleRole="BUTTON" fitHeight="73.0" fitWidth="87.0" layoutX="304.0" layoutY="254.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@no-icon-png-26.jpg" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="playbutton" fitHeight="73.0" fitWidth="73.0" layoutX="40.0" layoutY="254.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@noun-play-1807840.png" />
          </image>
       </ImageView>
       <Label layoutX="127.0" layoutY="12.0" prefHeight="150.0" prefWidth="192.0" text="Paused!">
@@ -24,18 +29,13 @@
             <Font size="36.0" />
          </font>
       </Label>
-      <ImageView accessibleRole="BUTTON" fitHeight="73.0" fitWidth="84.0" layoutX="32.0" layoutY="254.0" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@353574.png" />
-         </image>
-      </ImageView>
       <ImageView fitHeight="89.0" fitWidth="73.0" layoutX="189.0" layoutY="254.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@img_573392.png" />
          </image>
       </ImageView>
-      <Button fx:id="button" layoutX="31.0" layoutY="254.0" mnemonicParsing="false" onAction="#switchToHomepage" opacity="0.0" prefHeight="73.0" prefWidth="74.0" text="Button" />
-      <Button fx:id="button1" layoutX="31.0" layoutY="254.0" mnemonicParsing="false" onAction="#handleResumeButton" opacity="0.0" prefHeight="73.0" prefWidth="74.0" text="Button" />
-      <Button fx:id="button" layoutX="343.0" layoutY="265.0" mnemonicParsing="false" onAction="#switchToHomepage" opacity="0.0" prefHeight="50.0" prefWidth="52.0" text="Button" />
+      <Button fx:id="button1" layoutX="37.0" layoutY="251.0" mnemonicParsing="false" onAction="#handleResumeButton" opacity="0.0" prefHeight="86.0" prefWidth="73.0" text="Button" />
+      <Button fx:id="button" layoutX="319.0" layoutY="265.0" mnemonicParsing="false" onAction="#switchToHomepage" opacity="0.0" prefHeight="50.0" prefWidth="45.0" text="Button" />
+
    </children>
 </AnchorPane>

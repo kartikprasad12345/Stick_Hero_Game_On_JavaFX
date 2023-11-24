@@ -15,6 +15,7 @@ import javafx.scene.layout.Pane;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Rectangle;
 import javafx.scene.transform.Rotate;
+import javafx.stage.Modality;
 import javafx.stage.Stage;
 import javafx.util.Duration;
 
@@ -257,22 +258,39 @@ public class Homescreencontroller {
         // Set auto-reverse for a smooth animation when the mouse button is released
 //        increaseHeightTimeline.setAutoReverse(false);
     }
+//    @FXML
+//    private void handlePauseButton(ActionEvent event) throws IOException {
+//        // Load the PauseScreen.fxml file
+//        FXMLLoader loader = new FXMLLoader(getClass().getResource("PauseScreen.fxml"));
+//        Parent pauseScreen = loader.load();
+//
+//        // Create a new stage for the pause screen
+//        Stage pauseStage = new Stage();
+//        pauseStage.setTitle("Pause Screen");
+//        pauseStage.setScene(new Scene(pauseScreen));
+//
+//        // Set the stage to be a modal window (blocks interactions with the main window)
+//        pauseStage.initOwner(((Stage) ((javafx.scene.Node) event.getSource()).getScene().getWindow()));
+//        pauseStage.initModality(javafx.stage.Modality.APPLICATION_MODAL);
+//
+//        // Show the pause screen
+//        pauseStage.showAndWait();
+//    }
+
     @FXML
     private void handlePauseButton(ActionEvent event) throws IOException {
-        // Load the PauseScreen.fxml file
         FXMLLoader loader = new FXMLLoader(getClass().getResource("PauseScreen.fxml"));
         Parent pauseScreen = loader.load();
 
-        // Create a new stage for the pause screen
+        PausescreenController pauseScreenController = loader.getController();
+        pauseScreenController.setHomeScreenStage((Stage) pausebutton.getScene().getWindow()); // Pass the home screen's stage
+
         Stage pauseStage = new Stage();
         pauseStage.setTitle("Pause Screen");
         pauseStage.setScene(new Scene(pauseScreen));
 
-        // Set the stage to be a modal window (blocks interactions with the main window)
-        pauseStage.initOwner(((Stage) ((javafx.scene.Node) event.getSource()).getScene().getWindow()));
-        pauseStage.initModality(javafx.stage.Modality.APPLICATION_MODAL);
-
-        // Show the pause screen
+        // Set the stage to be a modal window
+        pauseStage.initModality(Modality.APPLICATION_MODAL);
         pauseStage.showAndWait();
     }
 }

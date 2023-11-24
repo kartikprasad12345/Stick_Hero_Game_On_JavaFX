@@ -258,7 +258,7 @@ public class Homescreencontroller {
 //        increaseHeightTimeline.setAutoReverse(false);
     }
     @FXML
-    private void handlePauseButton(MouseEvent event) throws Exception {
+    private void handlePauseButton(ActionEvent event) throws IOException {
         // Load the PauseScreen.fxml file
         FXMLLoader loader = new FXMLLoader(getClass().getResource("PauseScreen.fxml"));
         Parent pauseScreen = loader.load();

@@ -23,5 +23,6 @@
          </image>
       </ImageView>
       <Button fx:id="mainbutton" layoutY="66.0" mnemonicParsing="false" opacity="0.0" prefHeight="475.0" prefWidth="450.0" />
+      <Button fx:id="pausebutton" mnemonicParsing="false" onAction="#handlePauseButton" opacity="0.06" prefHeight="52.0" prefWidth="52.0" text="Button" />
    </children>
 </Pane>

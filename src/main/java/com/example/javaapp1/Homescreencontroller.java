@@ -57,7 +57,7 @@ public class Homescreencontroller {
             BridgeandPlatform curr=(BridgeandPlatform) g.getChildren().get(current_block);
             BridgeandPlatform next=(BridgeandPlatform) g.getChildren().get(current_block+1);
             System.out.println(curr.getbridgelen());
-            if(curr.getbridgelen()<next.xccord-(curr.width+curr.xccord)){
+            if((curr.getbridgelen()<next.xccord-(curr.width+curr.xccord)) || (curr.getbridgelen()>next.xccord+next.width-(curr.width+curr.xccord))){
                 System.out.println("Fell down");
                 trans.setByX(-curr.getbridgelen()-curr.width+39);
                 trans.setOnFinished(new Handlefell());

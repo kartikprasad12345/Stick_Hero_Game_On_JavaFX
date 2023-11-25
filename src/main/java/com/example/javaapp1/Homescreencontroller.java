@@ -21,6 +21,8 @@ import javafx.util.Duration;
 
 import java.io.IOException;
 
+import static java.lang.Math.random;
+
 public class Homescreencontroller {
     int current_block;
     private Stage stage;
@@ -37,7 +39,7 @@ public class Homescreencontroller {
     private Timeline increaseHeightTimeline;
     private long pressStartTime;
     private int setonfinished=0;
-    Group g;
+    static Group g;
     Rectangle temp;
     private Player p;
     class Handlefell implements EventHandler<ActionEvent>{
@@ -98,6 +100,18 @@ public class Homescreencontroller {
 //        stage.setScene(scene);
 //        stage.show();
 //    }
+    public static double gen_number(double lo,double hi){
+        double random= random();
+        double random_value=lo+random*(hi -lo);
+        return random_value;
+    }
+    public static BridgeandPlatform gen_platform(int i){
+        BridgeandPlatform prev=(BridgeandPlatform) g.getChildren().get(i);
+        double x_coord_where=gen_number(prev.xccord+ prev.width+100,prev.xccord+prev.width +(450-prev.width)-50);
+        double width_whre=gen_number(50,450-prev.width-(x_coord_where- prev.width-prev.xccord));
+        BridgeandPlatform return_val=new BridgeandPlatform(x_coord_where,width_whre);
+        return return_val;
+    }
     @FXML
     public void initialize() {
 //        Parent root= FXMLLoader.load(getClass().getResource("BackgroundGame.fxml"));
@@ -123,12 +137,15 @@ public class Homescreencontroller {
 //        rootPane.getChildren().add(temp);
         this.p=new Player();
         BridgeandPlatform lvl1=new BridgeandPlatform(-2,122);
-        BridgeandPlatform lvl2=new BridgeandPlatform(313,73);
-        BridgeandPlatform lvl3=new BridgeandPlatform(563,70);
+//        BridgeandPlatform lvl2=new BridgeandPlatform(313,73);
+//        BridgeandPlatform lvl3=new BridgeandPlatform(563,70);
         g=new Group();
         g.getChildren().add(lvl1);
-        g.getChildren().add(lvl2);
-        g.getChildren().add(lvl3);
+//        g.getChildren().add(lvl2);
+//        g.getChildren().add(lvl3);
+        for(int i=1;i<=1000;i++){
+            g.getChildren().add(gen_platform(i-1));
+        }
 //        g.getChildren().add(myRectangle);
 //        g.getChildren().add(temp);
 //        g.getChildren().add(temp1);

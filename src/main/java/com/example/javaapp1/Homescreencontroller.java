@@ -50,13 +50,24 @@ public class Homescreencontroller {
         }
     }
     class Afterrotation implements EventHandler<ActionEvent>{
+        Homescreencontroller outer;
+        Afterrotation(Homescreencontroller outer){
+            this.outer=outer;
+        }
 
         @Override
         public void handle(ActionEvent actionEvent) {
             TranslateTransition trans=new TranslateTransition();
             trans.setNode(g);
-            trans.setDuration(Duration.seconds(2));
-
+            trans.setDuration(Duration.seconds(3));
+//            mainbutton.setOnMousePressed((MouseEvent event) -> {
+//                double currentX = g.getChildren().get(current_block).getTranslateX();
+//                double currentY = g.getChildren().get(current_block).getTranslateY();
+//                System.out.println("Current position: X=" + currentX + ", Y=" + currentY);
+//            });
+            mainbutton.setOnMousePressed(this::Invertplayer);
+//            mainbutton.setOnMousePressed(this::Disablebutton1);
+            mainbutton.setOnMouseReleased(this::Disablebutton1);
             BridgeandPlatform curr=(BridgeandPlatform) g.getChildren().get(current_block);
             BridgeandPlatform next=(BridgeandPlatform) g.getChildren().get(current_block+1);
             System.out.println(curr.getbridgelen());
@@ -66,7 +77,7 @@ public class Homescreencontroller {
                 trans.setOnFinished(new Handlefell());
             }else {
                 trans.setByX(curr.xccord-next.xccord);
-                trans.setOnFinished(new Aftertranslation());
+                trans.setOnFinished(new Aftertranslation(outer));
             }
 //            trans.setByX(curr.xccord-next.xccord);
 //                TranslateTransition trans1=new TranslateTransition();
@@ -78,15 +89,39 @@ public class Homescreencontroller {
 //            trans.setOnFinished(new Aftertranslation());
             trans.play();
         }
+
+        private void Disablebutton1(MouseEvent mouseEvent) {
+        }
+
+        private void Invertplayer(MouseEvent mouseEvent) {
+            System.out.println(g.getTranslateX()+2);
+//            p.toggleflag((BridgeandPlatform) g.getChildren().get(current_block),(BridgeandPlatform) g.getChildren().get(current_block+1));
+            p.toggleflag((BridgeandPlatform) g.getChildren().get(current_block),(BridgeandPlatform) g.getChildren().get(current_block+1),g);
+        }
     }
     class Aftertranslation implements  EventHandler<ActionEvent>{
+        Homescreencontroller outer;
+        Aftertranslation(Homescreencontroller outer){
+            this.outer=outer;
+        }
+
 
         @Override
         public void handle(ActionEvent actionEvent) {
             current_block++;
+            System.out.println("Platform here:"+(g.getTranslateX()+2));
+            mainbutton.setOnMousePressed(outer::handleMousePressed);
+            mainbutton.setOnMouseReleased(outer::handleMouseReleased);
 //            myRectangle=(Rectangle)g.getChildren().get(g.getChildren().size()-1);
         }
     }
+//    class Invertplayer implements  EventHandler<ActionEvent>{
+//
+//        @Override
+//        public void handle(ActionEvent actionEvent) {
+//            p.toggleflag();
+//        }
+//    }
 
 //    public void playbutton(ActionEvent e) throws Exception {
 ////        System.out.println("Play button");
@@ -105,11 +140,11 @@ public class Homescreencontroller {
         double random_value=lo+random*(hi -lo);
         return random_value;
     }
-    public static BridgeandPlatform gen_platform(int i){
+    public static BridgeandPlatform gen_platform(int i,int index){
         BridgeandPlatform prev=(BridgeandPlatform) g.getChildren().get(i);
         double x_coord_where=gen_number(prev.xccord+ prev.width+100,prev.xccord+prev.width +(450-prev.width)-50);
         double width_whre=gen_number(50,450-prev.width-(x_coord_where- prev.width-prev.xccord));
-        BridgeandPlatform return_val=new BridgeandPlatform(x_coord_where,width_whre);
+        BridgeandPlatform return_val=new BridgeandPlatform(x_coord_where,width_whre,index);
         return return_val;
     }
     @FXML
@@ -136,7 +171,7 @@ public class Homescreencontroller {
 //        rootPane.getChildren().add(myRectangle);
 //        rootPane.getChildren().add(temp);
         this.p=new Player();
-        BridgeandPlatform lvl1=new BridgeandPlatform(-2,122);
+        BridgeandPlatform lvl1=new BridgeandPlatform(0,122,0);
 //        BridgeandPlatform lvl2=new BridgeandPlatform(313,73);
 //        BridgeandPlatform lvl3=new BridgeandPlatform(563,70);
         g=new Group();
@@ -144,7 +179,7 @@ public class Homescreencontroller {
 //        g.getChildren().add(lvl2);
 //        g.getChildren().add(lvl3);
         for(int i=1;i<=1000;i++){
-            g.getChildren().add(gen_platform(i-1));
+            g.getChildren().add(gen_platform(i-1,i));
         }
 //        g.getChildren().add(myRectangle);
 //        g.getChildren().add(temp);
@@ -156,6 +191,7 @@ public class Homescreencontroller {
 //        myRectangle=((BridgeandPlatform)g.getChildren().get(this.current_block)).bridge;
 //        System.out.println(g.getChildren().size());
         System.out.println("Hey1");
+        System.out.println(g.getTranslateX()+2);
         mainbutton.setOnMousePressed(this::handleMousePressed);
         mainbutton.setOnMouseReleased(this::handleMouseReleased);
 //        createTimeline();
@@ -247,7 +283,7 @@ public class Homescreencontroller {
 ////                setonfinished=1;
 ////            }
 ////        });
-        rotate.setOnFinished(new Afterrotation());
+        rotate.setOnFinished(new Afterrotation(this));
         rotate.play();
 //        while(setonfinished==0){
 //            if(setonfinished==1){

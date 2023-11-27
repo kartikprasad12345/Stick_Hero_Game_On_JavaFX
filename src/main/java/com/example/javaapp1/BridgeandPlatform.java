@@ -7,14 +7,16 @@ import javafx.scene.paint.Color;
 import javafx.scene.shape.Rectangle;
 
 public class BridgeandPlatform extends Pane {
+    int index;
     public double xccord;
     public double width;
     public Rectangle bridge;
     public Rectangle platform;
-    public BridgeandPlatform(double xcoord,double width){
+    public BridgeandPlatform(double xcoord,double width,int index){
         super();
         this.xccord=xcoord;
         this.width=width;
+        this.index=index;
         bridge=new Rectangle(10,10, Color.BLACK);
         platform=new Rectangle(width,233,Color.BLACK);
         platform.setX(xcoord);

@@ -1,21 +1,11 @@
 package com.example.javaapp1;
-import javafx.scene.Parent;
-import javafx.scene.image.Image;
-import javafx.scene.image.ImageView;
-import javafx.stage.Stage;
+
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
-import javafx.scene.control.Button;
-import javafx.scene.layout.StackPane;
+import javafx.scene.image.Image;
 import javafx.stage.Stage;
-import javafx.scene.control.Label;
-import java.io.IOException;
-import javafx.stage.Stage;
-import javafx.scene.Group;
-import java.io.FileInputStream;
-import java.io.InputStream;
-import javafx.stage.Stage;
+
 public class HelloApplication extends Application {
     @Override
     public void start(Stage primaryStage) throws Exception {
@@ -116,9 +106,25 @@ public class HelloApplication extends Application {
         primaryStage.setWidth(464);
         primaryStage.setResizable(false);
         primaryStage.setScene(scene);
+        // Play the startup sound
+        //playStartupSound();
+
         primaryStage.show();
 
     }
+
+//    private void playStartupSound() {
+//        Media media = null;
+//        try {
+//            media = new Media(getClass().getResource("mixkit-game-level-music-689.wav").toURI().toString());
+//            MediaPlayer mediaPlayer = new MediaPlayer(media);
+//            mediaPlayer.setAutoPlay(true);
+//        } catch (URISyntaxException e) {
+//            e.printStackTrace();
+//        }
+//    }
+
+
 
     public static void main(String[] args) {
         launch();

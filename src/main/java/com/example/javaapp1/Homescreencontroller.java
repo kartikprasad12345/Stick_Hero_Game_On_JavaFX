@@ -6,7 +6,6 @@ import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Group;
-import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
@@ -42,6 +41,8 @@ public class Homescreencontroller {
     static Group g;
     Rectangle temp;
     private Player p;
+
+
     class Handlefell implements EventHandler<ActionEvent>{
 
         @Override
@@ -149,6 +150,7 @@ public class Homescreencontroller {
     }
     @FXML
     public void initialize() {
+
 //        Parent root= FXMLLoader.load(getClass().getResource("BackgroundGame.fxml"));
 //        stage=(Stage)((Node)e.getSource()).getScene().getWindow();
 //        scene=new Scene(root);
@@ -278,6 +280,7 @@ public class Homescreencontroller {
         };
 ////        rotate.setOnFinished(new EventHandler<ActionEvent>() {
 ////
+
 ////            @Override
 ////            public void handle(ActionEvent event) {
 ////                setonfinished=1;
@@ -296,6 +299,21 @@ public class Homescreencontroller {
 //        trans.setToX(-700);
 //        trans.play();
 
+    }
+
+    @FXML
+    private void handleSaveButton(ActionEvent event) {
+        GameState gameState = new GameState(current_block);
+        SaveLoadManager.saveGameState(gameState);
+    }
+
+    @FXML
+    private void handleLoadButton(ActionEvent event) {
+        GameState gameState = SaveLoadManager.loadGameState();
+        if (gameState != null) {
+            current_block = gameState.getCurrentBlock();
+            // Update your UI or game state with the loaded data
+        }
     }
 
     private void createTimeline() {

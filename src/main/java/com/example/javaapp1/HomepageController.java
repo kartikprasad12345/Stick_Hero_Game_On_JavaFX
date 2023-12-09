@@ -24,6 +24,31 @@ public class HomepageController{
         stage.setScene(scene);
         stage.show();
     }
+    public void switchToLoadGame(ActionEvent event) throws IOException {
+        root = FXMLLoader.load(getClass().getResource("backgroundgame1.fxml"));
+        stage = (Stage)((Node)event.getSource()).getScene().getWindow();
+        scene = new Scene(root);
+        stage.setScene(scene);
+        stage.show();
+    }
+
+//    @FXML
+//    public void Deserialize() {
+//        try{
+//            ObjectInputStream f=new ObjectInputStream(new FileInputStream("C:\\Users\\ayush\\Desktop\\javaapp1\\src\\main\\java\\com\\example\\javaapp1\\ps.txt"));
+//            PlayerStats pstemp=(PlayerStats) f.readObject();
+//            ObjectOutputStream f1=new ObjectOutputStream(new FileOutputStream("C:\\Users\\ayush\\Desktop\\javaapp1\\src\\main\\java\\com\\example\\javaapp1\\ps.txt"));
+//            f1.writeObject(pstemp);
+//        }catch(EOFException e){
+//
+//        } catch (ClassNotFoundException e) {
+//            throw new RuntimeException(e);
+//        } catch (FileNotFoundException e) {
+//            throw new RuntimeException(e);
+//        } catch (IOException e) {
+//            throw new RuntimeException(e);
+//        }
+//    }
 
     public void setExitButton(ActionEvent event) throws IOException {
         Alert alert = new Alert(Alert.AlertType.CONFIRMATION);

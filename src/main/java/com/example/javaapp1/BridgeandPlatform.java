@@ -1,12 +1,11 @@
 package com.example.javaapp1;
 
-import javafx.scene.Node;
-import javafx.scene.Parent;
 import javafx.scene.layout.Pane;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Rectangle;
 
 public class BridgeandPlatform extends Pane {
+    Cherry cherry_var;
     int index;
     public double xccord;
     public double width;
@@ -25,6 +24,17 @@ public class BridgeandPlatform extends Pane {
         bridge.setX(xcoord+width-10);
         getChildren().addAll(platform,bridge);
     }
+    public void setCherry_var(Cherry c){
+        this.cherry_var=c;
+        getChildren().add(c);
+    }
+    public void removecherry(){
+        if(cherry_var.cnt==0){
+            getChildren().remove(cherry_var);
+        }
+//        getChildren().remove(cherry_var);
+    }
+
     public double getbridgelen(){
         return (bridge.getScaleY()*bridge.getHeight())/2;
     }

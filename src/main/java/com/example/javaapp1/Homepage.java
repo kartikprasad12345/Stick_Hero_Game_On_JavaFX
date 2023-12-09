@@ -7,6 +7,7 @@ import javafx.scene.control.Alert;
 import javafx.scene.control.ButtonType;
 import javafx.scene.image.Image;
 import javafx.stage.Stage;
+
 public class Homepage extends Application {
     @Override
     public void start(Stage primaryStage) throws Exception {
@@ -37,6 +38,8 @@ public class Homepage extends Application {
             stage.close();
         }
     }
+
+
 
     public static void main(String[] args) {
         launch();

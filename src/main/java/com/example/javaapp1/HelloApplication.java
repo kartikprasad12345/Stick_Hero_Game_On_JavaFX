@@ -4,7 +4,11 @@ import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.scene.image.Image;
+import javafx.scene.media.Media;
+import javafx.scene.media.MediaPlayer;
 import javafx.stage.Stage;
+
+import java.nio.file.Paths;
 
 public class HelloApplication extends Application {
     @Override
@@ -107,22 +111,21 @@ public class HelloApplication extends Application {
         primaryStage.setResizable(false);
         primaryStage.setScene(scene);
         // Play the startup sound
-        //playStartupSound();
+        //music();
 
         primaryStage.show();
 
     }
 
-//    private void playStartupSound() {
-//        Media media = null;
-//        try {
-//            media = new Media(getClass().getResource("mixkit-game-level-music-689.wav").toURI().toString());
-//            MediaPlayer mediaPlayer = new MediaPlayer(media);
-//            mediaPlayer.setAutoPlay(true);
-//        } catch (URISyntaxException e) {
-//            e.printStackTrace();
-//        }
-//    }
+    MediaPlayer mediaPlayer;
+
+    public void music() {
+        String s = "mixkit-game-level-music-689.wav";
+        Media h = new Media(Paths.get(s).toUri().toString());
+        mediaPlayer = new MediaPlayer(h);
+        mediaPlayer.play();
+
+    }
 
 
 

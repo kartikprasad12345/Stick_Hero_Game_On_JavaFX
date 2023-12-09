@@ -51,6 +51,39 @@ public class Homescreencontroller {
     private Timeline increaseHeightTimeline;
     private long pressStartTime;
     private int setonfinished=0;
+
+    public int getCherry_cnt() {
+        return cherry_cnt;
+    }
+
+    public void setCherry_cnt(int cherry_cnt) {
+        this.cherry_cnt = cherry_cnt;
+    }
+
+    public int getCnt() {
+        return cnt;
+    }
+
+    public void setCnt(int cnt) {
+        this.cnt = cnt;
+    }
+
+    public Player getP() {
+        return p;
+    }
+
+    public void setP(Player p) {
+        this.p = p;
+    }
+
+    public Label getScore() {
+        return score;
+    }
+
+    public void setScore(Label score) {
+        this.score = score;
+    }
+
     static Group g;
     Rectangle temp;
     Player p;
@@ -212,14 +245,7 @@ public class Homescreencontroller {
                 trans.setByX(curr.xccord-next.xccord);
                 trans.setOnFinished(new Aftertranslation(outer,1));
             }
-//            trans.setByX(curr.xccord-next.xccord);
-//                TranslateTransition trans1=new TranslateTransition();
-//                trans1.setNode(myRectangle);
-//                trans1.setDuration(Duration.seconds(5));
-//                trans1.setByX(-700);
-//                trans1.play();
-
-//            trans.setOnFinished(new Aftertranslation());
+//
             trans.play();
         }
 
@@ -260,26 +286,7 @@ public class Homescreencontroller {
         private void Disablebutton2(MouseEvent mouseEvent) {
         }
     }
-//    class Invertplayer implements  EventHandler<ActionEvent>{
-//
-//        @Override
-//        public void handle(ActionEvent actionEvent) {
-//            p.toggleflag();
-//        }
-//    }
 
-    //    public void playbutton(ActionEvent e) throws Exception {
-////        System.out.println("Play button");
-//        Parent root= FXMLLoader.load(getClass().getResource("BackgroundGame.fxml"));
-//        stage=(Stage)((Node)e.getSource()).getScene().getWindow();
-//        scene=new Scene(root);
-//        myRectangle=new Rectangle(10,10, Color.BLACK);
-//        rootPane.getChildren().add(myRectangle);
-//        mainbutton.setOnMousePressed(this::handleMousePressed);
-//        mainbutton.setOnMouseReleased(this::handleMouseReleased);
-//        stage.setScene(scene);
-//        stage.show();
-//    }
     public static double gen_number(double lo,double hi){
         double random= random();
         double random_value=lo+random*(hi -lo);

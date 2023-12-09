@@ -14,8 +14,8 @@ import javafx.util.Duration;
 import java.io.IOException;
 
 public class Player extends ImageView {
-    int bridge_no;
-    int flag;
+    private int bridge_no;
+    private int flag;
     int player_cherry_cnt;
     int score;
 
@@ -96,6 +96,33 @@ public class Player extends ImageView {
             t.play();
         }
 
+    public int getBridge_no() {
+        return bridge_no;
+    }
+
+    public void setBridge_no(int bridge_no) {
+        this.bridge_no = bridge_no;
+    }
+
+    public void setFlag(int flag) {
+        this.flag = flag;
+    }
+
+    public int getPlayer_cherry_cnt() {
+        return player_cherry_cnt;
+    }
+
+    public void setPlayer_cherry_cnt(int player_cherry_cnt) {
+        this.player_cherry_cnt = player_cherry_cnt;
+    }
+
+    public int getScore() {
+        return score;
+    }
+
+    public void setScore(int score) {
+        this.score = score;
+    }
 
 
 //    private void showRevivedScene() {
@@ -128,7 +155,7 @@ public class Player extends ImageView {
 //        }
 
 
-    private void showGameOverScene() {
+    void showGameOverScene() {
         try {
             // Load the FXML file
             FXMLLoader loader = new FXMLLoader(getClass().getResource("game_over.fxml"));
